@@ -1,0 +1,45 @@
+.ui {
+    position: absolute;
+    left: 16vw;
+    bottom: 4.9vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stats {
+    display: flex;
+    flex-direction: row;
+
+    height: 35px;
+
+    border-radius: 20px;
+    background-color: #0000006e;
+    margin-bottom: 5px;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-image: linear-gradient(45deg, #0203f9 0%, #ef1f8f 75%);
+}
+
+.counter {
+    line-height: 35px;
+    margin-left: 5px;
+    margin-right: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    vertical-align: middle;
+    font-family: "Helvetica", sans-serif;
+    text-shadow: 0px 0px 0px #000000;
+}
+
+img {
+    max-width: 20px;
+    max-height: 20px;
+    margin-top: 7px;
+    margin-left: 8px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+		<title>GTA TRACK</title>
+	</head>
+	<body>
+		<div class="ui">
+			<span class="stats">
+				<span class="circle"><img src="./icon/kill.png" /></span>
+				<span class="counter" id="kills"><strong>0</strong></span>
+			</span>
+			<span class="stats">
+				<span class="circle"><img src="./icon/death.png" /></span>
+				<span class="counter" id="deaths"><strong>0</strong></span>
+			</span>
+			<span class="stats">
+				<span class="circle"><img src="./icon/hs.png" /></span>
+				<span class="counter" id="headshots"><strong>0</strong></span>
+			</span>
+			<span class="stats">
+				<span class="circle"><img src="./icon/kd.png" /></span>
+				<span class="counter" id="kd"><strong>0</strong></span>
+			</span>
+		</div>
+
+		<script>
+			$(() => {
+				window.addEventListener("message", (event) => {
+					const data = event.data;
+
+					switch(data.action) {
+						case "update": {
+							if (data.kills) {
+								$("#kills").html(`<strong>${data.kills}</strong>`);
+							}
+
+							if (data.deaths) {
+								$("#deaths").html(`<strong>${data.deaths}</strong>`);
+							}
+
+							if (data.headshots) {
+								$("#headshots").html(`<strong>${data.headshots}</strong>`);
+							}
+
+							if (data.kd) {
+								$("#kd").html(`<strong>${data.kd}</strong>`);
+							}
+
+							break;
+						}
+
+						default: break;
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
