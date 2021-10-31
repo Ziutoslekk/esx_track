@@ -54,6 +54,16 @@
 							break;
 						}
 
+						case "visible": {
+							if (data.isVisible) {
+								$(".ui").show();
+							} else {
+								$(".ui").hide();
+							}
+
+							break;
+						}
+
 						default: break;
 					}
 				});

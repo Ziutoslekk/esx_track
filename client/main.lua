@@ -5,6 +5,28 @@ Values = {
     ["kd"] = 0
 }
 
+Citizen.CreateThread(function ()
+    local isPauseMenu = false
+    
+    while true do
+        if IsPauseMenuActive() then
+            if not isPauseMenu then
+                SendNUIMessage({ action = 'visible', isVisible = false })
+
+                isPauseMenu = true
+            end
+        else
+            if isPauseMenu then
+                SendNUIMessage({ action = 'visible', isVisible = true })
+
+                isPauseMenu = false
+            end
+        end
+
+        Citizen.Wait(0)
+    end
+end)
+
 RegisterNetEvent("esx_track:setData")
 AddEventHandler("esx_track:setData", function(kills, deaths, headshots)
     if kills then
